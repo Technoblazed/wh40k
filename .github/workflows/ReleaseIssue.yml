@@ -19,6 +19,6 @@ jobs:
         labels: "Type: Release Thread"
         pinned: true
         close-previous: true
-        template: ".github/RELEASE_TEMPLATE.md"
+        template: ".github/ISSUE_TEMPLATE/RELEASE_TEMPLATE.md"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
