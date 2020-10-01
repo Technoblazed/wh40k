@@ -1,0 +1,24 @@
+name: Monthly Release
+
+on: push
+
+jobs:
+  daily_standup:
+    name: Daily Standup
+    runs-on: ubuntu-latest
+    steps:
+
+    # Repo code checkout required if `template` is used
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: issue-bot
+      uses: imjohnbo/issue-bot@v2
+      with:
+        assignees: "Technoblazed" # GitHub handles without the @
+        labels: "Type: Release Thread"
+        pinned: true
+        close-previous: true
+        template: ".github/RELEASE_TEMPLATE.md"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
